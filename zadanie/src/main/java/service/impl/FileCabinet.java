@@ -228,7 +228,7 @@ public class FileCabinet implements Cabinet {
             return null;
         }
 
-        if (folder.getClass() == DefaultMultiFolder.class) {
+        if (folder instanceof DefaultMultiFolder) {
 
             DefaultMultiFolder searchFolder = (DefaultMultiFolder) folder;
 
@@ -245,7 +245,7 @@ public class FileCabinet implements Cabinet {
             }
         }
 
-        if (folder.getClass() == DefaultFolder.class) {
+        if (folder instanceof DefaultFolder) {
             System.out.println("SPRAWDZAM FOLDER: " + folder.getName() + " -- " + name);
             if (folder.getName().equals(name)) {
                 System.out.println("Zwracam folder: " + folder.getName());
@@ -256,7 +256,7 @@ public class FileCabinet implements Cabinet {
     }
 
     private void searchFolderWithSize(Folder folder, String size, List<Folder> folders) {
-        if (folder.getClass() == DefaultMultiFolder.class) {
+        if (folder instanceof DefaultMultiFolder) {
 
             DefaultMultiFolder searchFolder = (DefaultMultiFolder) folder;
 
@@ -270,7 +270,7 @@ public class FileCabinet implements Cabinet {
             }
         }
 
-        if (folder.getClass() == DefaultFolder.class) {
+        if (folder instanceof DefaultFolder) {
             if (folder.getSize().equals(size)) {
                 System.out.println("Dodaje folder: " + folder.getSize());
                 folders.add(folder);
@@ -281,7 +281,7 @@ public class FileCabinet implements Cabinet {
     private void countFolders(Folder folder) {
 
         System.out.println("CLASS TYPE: " + folder.getClass() + " || " +  folder.getName() + " || ");
-        if (folder.getClass() == DefaultMultiFolder.class) {
+        if (folder instanceof DefaultMultiFolder) {
 
             DefaultMultiFolder searchFolder = (DefaultMultiFolder) folder;
             for (Folder subFolder : searchFolder.getFolders()) {
