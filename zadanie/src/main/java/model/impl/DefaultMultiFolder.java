@@ -53,6 +53,6 @@ public class DefaultMultiFolder implements MultiFolder {
 
     @Override
     public String toString() {
-        return "name " + this.name + ", size " + this.size + ", folders " + this.subFolders;
+        return "name=" + this.name + ", size=" + this.size + ", folders=" + this.subFolders;
     }
 }
