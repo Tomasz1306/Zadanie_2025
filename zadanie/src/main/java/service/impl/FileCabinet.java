@@ -61,6 +61,8 @@ public class FileCabinet implements Cabinet {
         return (int) getFoldersWithBFS().count();
     }
 
+
+    // ADDITIONAL
     private Optional<Folder> findByNameRecursion(Folder folder, String name) {
         if (folder == null) return Optional.empty();
         if (folder.getName().equals(name)) {
@@ -106,7 +108,7 @@ public class FileCabinet implements Cabinet {
         Instant start = Instant.now();
         Optional<Folder> findedFolder = findFolderByName(name);
         Instant end = Instant.now();
-        double milis = Duration.between(start, end).toNanos() / 1_000_000;
+        double milis = (double) Duration.between(start, end).toNanos() / 1_000_000;
         System.out.println(findedFolder.isPresent() ? "Find: " + findedFolder.get().getName() : "not find: " + name);
         System.out.println("TIME: " + milis + " ms");
 
@@ -119,7 +121,7 @@ public class FileCabinet implements Cabinet {
             }
         }
         end = Instant.now();
-        milis = Duration.between(start, end).toNanos() / 1_000_000;
+        milis = (double) Duration.between(start, end).toNanos() / 1_000_000;
         System.out.println(folderByName.isPresent() ? "(RECURSION) Find: " + folderByName.get().getName() : "not find: " + name);
         System.out.println("TIME: " + milis + "ms");
     }
