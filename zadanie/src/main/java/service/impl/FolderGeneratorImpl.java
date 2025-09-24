@@ -69,22 +69,6 @@ public class FolderGeneratorImpl implements FolderGenerator {
         return size;
     }
 
-    public int getNumberOfDefaultFolders() {
-        return numberOfDefaultFolders;
-    }
-    public int getNumberOfDefaultMultiFolders() {
-        return numberOfDefaultMultiFolders;
-    }
-    public int getNumberOfSmallFolders() {
-        return numberOfSmallFolders;
-    }
-    public int getNumberOfMediumFolders() {
-        return numberOfMediumFolders;
-    }
-    public int getNumberOfLargeFolders() {
-        return numberOfLargeFolders;
-    }
-
     @Override
     public void displayMetrics() {
         System.out.println("Number of default folders: " + numberOfDefaultFolders);
