@@ -17,16 +17,10 @@ public class FileCabinet implements Cabinet {
 
     private final List<Folder> folders = new ArrayList<>();
 
-    public FileCabinet() {
+    public FileCabinet() {}
 
-        FolderGenerator folderGenerator = new FolderGeneratorImpl();
-        this.folders.addAll(folderGenerator.generateFolders(500, 10));
-        folderGenerator.displayMetrics();
-        String name = "Random 420 2 1";
-
-        runExampleFindByName(name);
-        runExampleFindBySize();
-        System.out.println("Number of folders: " + count());
+    public FileCabinet(List<Folder> folders) {
+        this.folders.addAll(folders);
     }
 
     @Override
@@ -94,6 +88,17 @@ public class FileCabinet implements Cabinet {
         if (folder.getSize().equals(size)) {
             folders.add(folder);
         }
+    }
+
+    public void runExamples() {
+        FolderGenerator folderGenerator = new FolderGeneratorImpl();
+        this.folders.addAll(folderGenerator.generateFolders(500, 10));
+        folderGenerator.displayMetrics();
+        String name = "Random 420 2 1";
+
+        runExampleFindByName(name);
+        runExampleFindBySize();
+        System.out.println("Number of folders: " + count());
     }
 
     private void runExampleFindByName(String name) {
