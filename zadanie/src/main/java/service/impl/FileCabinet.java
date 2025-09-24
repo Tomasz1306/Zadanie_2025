@@ -6,9 +6,9 @@ import model.impl.DefaultFolder;
 import model.impl.DefaultMultiFolder;
 import service.Cabinet;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.*;
 
 public class FileCabinet implements Cabinet {
 
@@ -20,174 +20,24 @@ public class FileCabinet implements Cabinet {
     }
 
     public FileCabinet() {
-        // 3
-        folders.add(new DefaultFolder("Folder A", Size.SMALL));
-        folders.add(new DefaultFolder("Folder B", Size.SMALL));
-        folders.add(new DefaultFolder("Folder C", Size.LARGE));
-        // 7
-        folders.add(new DefaultMultiFolder(
-                "Folder D",
-                Size.MEDIUM,
-                List.of(
-                        new DefaultFolder("Folder D1", Size.SMALL),
-                        new DefaultFolder("Folder D2", Size.SMALL),
-                        new DefaultMultiFolder(
-                                "Folder D3",
-                                Size.LARGE,
-                                List.of(
-                                        new DefaultFolder("Folder D3_A", Size.SMALL),
-                                        new DefaultFolder("Folder D3_B", Size.MEDIUM),
-                                        new DefaultFolder("Folder D3_C", Size.LARGE)
-                                )
-                        )
-                )
-        ));
-        // 8
-        folders.add(new DefaultMultiFolder(
-                "Folder E",
-                Size.LARGE,
-                List.of(
-                        new DefaultFolder("Folder E1", Size.SMALL),
-                        new DefaultFolder("Folder E2", Size.SMALL),
-                        new DefaultFolder("Folder E3", Size.MEDIUM),
-                        new DefaultMultiFolder(
-                                "Folder E4",
-                                Size.SMALL,
-                                List.of(
-                                        new DefaultFolder("Folder E4_A", Size.SMALL),
-                                        new DefaultFolder("Folder E4_B", Size.MEDIUM),
-                                        new DefaultFolder("Folder E4_C", Size.LARGE)
-                                )
-                        )
-                )
-        ));
-        // 9
-        folders.add(new DefaultMultiFolder(
-                "Folder F",
-                Size.MEDIUM,
-                List.of(
-                        new DefaultFolder("Folder F1", Size.SMALL),
-                        new DefaultMultiFolder(
-                                "Folder F2",
-                                Size.LARGE,
-                                List.of(
-                                        new DefaultFolder("Folder F2_A", Size.SMALL),
-                                        new DefaultFolder("Folder F2_B", Size.SMALL),
-                                        new DefaultFolder("Folder F2_C", Size.MEDIUM),
-                                        new DefaultFolder("Folder F2_D", Size.LARGE)
-                                )
-                        ),
-                        new DefaultFolder("Folder F3", Size.MEDIUM),
-                        new DefaultFolder("Folder F4", Size.SMALL)
-                )
-        ));
-        // 13
-        folders.add(new DefaultMultiFolder(
-                "Folder G",
-                Size.LARGE,
-                List.of(
-                        new DefaultFolder("Folder G1", Size.SMALL),
-                        new DefaultFolder("Folder G2", Size.MEDIUM),
-                        new DefaultMultiFolder(
-                                "Folder G3",
-                                Size.MEDIUM,
-                                List.of(
-                                        new DefaultFolder("Folder G3_A", Size.SMALL),
-                                        new DefaultFolder("Folder G3_B", Size.SMALL),
-                                        new DefaultMultiFolder(
-                                                "Folder G3_C",
-                                                Size.LARGE,
-                                                List.of(
-                                                        new DefaultFolder("Folder G3_C1", Size.SMALL),
-                                                        new DefaultFolder("Folder G3_C2", Size.MEDIUM),
-                                                        new DefaultFolder("Folder G3_C3", Size.SMALL),
-                                                        new DefaultFolder("Folder G3_C4", Size.LARGE)
-                                                )
-                                        )
-                                )
-                        ),
-                        new DefaultFolder("Folder G4", Size.SMALL),
-                        new DefaultFolder("Folder G5", Size.MEDIUM)
-                )
-        ));
-        // 9
-        folders.add(new DefaultMultiFolder(
-                "Folder H",
-                Size.SMALL,
-                List.of(
-                        new DefaultFolder("Folder H1", Size.SMALL),
-                        new DefaultFolder("Folder H2", Size.SMALL),
-                        new DefaultFolder("Folder H3", Size.MEDIUM),
-                        new DefaultFolder("Folder H4", Size.LARGE),
-                        new DefaultMultiFolder(
-                                "Folder H5",
-                                Size.MEDIUM,
-                                List.of(
-                                        new DefaultFolder("Folder H5_A", Size.SMALL),
-                                        new DefaultFolder("Folder H5_B", Size.MEDIUM),
-                                        new DefaultFolder("Folder H5_C", Size.LARGE)
-                                )
-                        )
-                )
-        ));
-        // 14
-        folders.add(new DefaultMultiFolder(
-                "Folder I",
-                Size.LARGE,
-                List.of(
-                        new DefaultFolder("Folder I1", Size.SMALL),
-                        new DefaultFolder("Folder I2", Size.SMALL),
-                        new DefaultMultiFolder(
-                                "Folder I3",
-                                Size.MEDIUM,
-                                List.of(
-                                        new DefaultFolder("Folder I3_A", Size.SMALL),
-                                        new DefaultFolder("Folder I3_B", Size.SMALL),
-                                        new DefaultFolder("Folder I3_C", Size.MEDIUM),
-                                        new DefaultMultiFolder(
-                                                "Folder I3_D",
-                                                Size.LARGE,
-                                                List.of(
-                                                        new DefaultFolder("Folder I3_D1", Size.SMALL),
-                                                        new DefaultFolder("Folder I3_D2", Size.MEDIUM),
-                                                        new DefaultFolder("Folder I3_D3", Size.LARGE)
-                                                )
-                                        )
-                                )
-                        ),
-                        new DefaultFolder("Folder I4", Size.SMALL),
-                        new DefaultFolder("Folder I5", Size.MEDIUM),
-                        new DefaultFolder("Folder I6", Size.LARGE)
-                )
-        ));
-        // 11
-        folders.add(new DefaultMultiFolder(
-                "Folder J",
-                Size.SMALL,
-                List.of(
-                        new DefaultFolder("Folder J1", Size.SMALL),
-                        new DefaultFolder("Folder J2", Size.SMALL),
-                        new DefaultFolder("Folder J3", Size.MEDIUM),
-                        new DefaultMultiFolder(
-                                "Folder J4",
-                                Size.LARGE,
-                                List.of(
-                                        new DefaultFolder("Folder J4_A", Size.SMALL),
-                                        new DefaultFolder("Folder J4_B", Size.MEDIUM),
-                                        new DefaultFolder("Folder J4_C", Size.LARGE),
-                                        new DefaultFolder("Folder J4_D", Size.SMALL)
-                                )
-                        ),
-                        new DefaultFolder("Folder J5", Size.SMALL),
-                        new DefaultFolder("Folder J6", Size.MEDIUM)
-                )
-        ));
 
+    this.generateData(15000,3000,200);
+//    for (Folder folder : folders) {
+//        System.out.println(folder);
+//    }
 
-//        Optional<Folder> folderA = findFolderByName("Folder D");
-//        System.out.println(folderA.map(folder -> "Znaleziono: " + folder.getName()).orElse("Nie znaleziono folderu A"));
+        Instant start1 = Instant.now();
+        Optional<Folder> folderA = findFolderByName("Random 10000 59");
+        Instant end1 = Instant.now();
+        Instant start3 = Instant.now();
+        Optional<Folder> folderC = findFolderByName3("Random 10000 59");
+        Instant end3 = Instant.now();
+        System.out.println("CZAS REKURENCJI: " + Duration.between(start1, end1).toString());
+        System.out.println("BFS: " + Duration.between(start3, end3).toString());
+        System.out.println(folderA.map(folder -> "Znaleziono: " + folder.getName()).orElse("Nie znaleziono folderu A"));
+        System.out.println(folderC.map(folder -> "ZNALEZIONO: " + folder.getName()).orElse("Nie znaleziono folderu C"));
 //        findFoldersBySize("LARGE");
-        System.out.println("Number of folders: " + count());
+//        System.out.println("Number of folders: " + count());
     }
 
     @Override
@@ -200,6 +50,58 @@ public class FileCabinet implements Cabinet {
         }
         return Optional.empty();
     }
+
+    public Optional<Folder> findFolderByName3(String name) {
+        Folder folder = BFS(name);
+        if (folder != null) {
+            return Optional.of(folder);
+        }
+        return Optional.empty();
+    }
+
+    private Folder BFS(String name) {
+        Iterator<Folder> mainIterator = this.folders.iterator();
+        Folder source = mainIterator.next();
+
+        Set<String> visited = new HashSet<>();
+
+        ArrayDeque<Folder> queue = new ArrayDeque<>();
+
+        visited.add(source.getName());
+        queue.add(source);
+
+        while(!queue.isEmpty()) {
+            source = queue.poll();
+            if (source.getClass() == DefaultFolder.class) {
+                if (source.getName().equals(name)) {
+                    return source;
+                }
+            }
+
+            if (source.getClass() == DefaultMultiFolder.class) {
+                if (source.getName().equals(name)) {
+                    return source;
+                }
+
+                for (Folder n : ((DefaultMultiFolder) source).getFolders()) {
+                    if (!visited.contains(n.getName())) {
+                        visited.add(n.getName());
+                        queue.add(n);
+                    }
+                }
+            }
+            if (mainIterator.hasNext()) {
+                Folder n = mainIterator.next();
+                if (!visited.contains(n.getName())) {
+                    visited.add(n.getName());
+                    queue.add(n);
+                }
+            }
+
+        }
+        return null;
+    }
+
 
     @Override
     public List<Folder> findFoldersBySize(String size) {
@@ -237,7 +139,6 @@ public class FileCabinet implements Cabinet {
             }
 
             for (Folder subFolder : searchFolder.getFolders()) {
-                System.out.println("Szukam w subFolder: " + subFolder.getName());
                 Folder returnedFromSubFolder = searchFolderWithName(subFolder, name);
                 if (returnedFromSubFolder != null) {
                     return returnedFromSubFolder;
@@ -246,9 +147,7 @@ public class FileCabinet implements Cabinet {
         }
 
         if (folder instanceof DefaultFolder) {
-            System.out.println("SPRAWDZAM FOLDER: " + folder.getName() + " -- " + name);
             if (folder.getName().equals(name)) {
-                System.out.println("Zwracam folder: " + folder.getName());
                 return folder;
             }
         }
@@ -289,5 +188,50 @@ public class FileCabinet implements Cabinet {
                 countFolders(subFolder) ;
             }
         }
+    }
+
+    private void generateData(int number, int maxNumberOfNestedFolder, int maxOfNest) {
+        for (int i = 0; i < number; i++) {
+            if (getRandomBoolean()) {
+                Size size = getRandomBoolean() ? Size.LARGE : getRandomBoolean() ? Size.MEDIUM : Size.SMALL;
+                this.folders.add(new DefaultFolder("Random " + i, size));
+            } else {
+                Size size = getRandomBoolean() ? Size.LARGE : getRandomBoolean() ? Size.MEDIUM : Size.SMALL;
+                DefaultMultiFolder multiFolder = new DefaultMultiFolder("Random " + i, size);
+
+                for (int j = 0; j < getRandomOfNestedFolders(maxNumberOfNestedFolder); j++) {
+                    if (getRandomBoolean()) {
+                        Size size1 = getRandomBoolean() ? Size.LARGE : getRandomBoolean() ? Size.MEDIUM : Size.SMALL;
+                        multiFolder.getFolders().add(new DefaultFolder("Random " + i + " " + j, size));
+                    } else {
+                        Size size1 = getRandomBoolean() ? Size.LARGE : getRandomBoolean() ? Size.MEDIUM : Size.SMALL;
+                        DefaultMultiFolder multiFolder1 = new DefaultMultiFolder("Random " + i + " " + j, size1);
+
+                        for (int k = 0; k < getRandomOfNest(maxOfNest); k++) {
+                            Size size2 = getRandomBoolean() ? Size.LARGE : getRandomBoolean() ? Size.MEDIUM : Size.SMALL;
+                            multiFolder1.getFolders().add(new DefaultFolder("Random " + i + " " + j + " " + k, size));
+                        }
+
+                        multiFolder.getFolders().add(multiFolder1);
+                    }
+
+                }
+                this.folders.add(multiFolder);
+            }
+        }
+    }
+
+    private boolean getRandomBoolean() {
+        return Math.random() < 0.5;
+    }
+
+    private int getRandomOfNestedFolders(int maxNumberOfNestedFolder) {
+        Random random = new Random();
+        return random.nextInt(maxNumberOfNestedFolder) + 1;
+    }
+
+    private int getRandomOfNest(int randomOfNest) {
+        Random random = new Random();
+        return random.nextInt(randomOfNest) + 1;
     }
 }
