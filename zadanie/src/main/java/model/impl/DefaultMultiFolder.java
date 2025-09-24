@@ -19,6 +19,11 @@ public class DefaultMultiFolder implements MultiFolder {
         this.subFolders.addAll(subFolders);
     }
 
+    public DefaultMultiFolder(String name, Size size) {
+        this.name = name;
+        this.size = size;
+    }
+
     @Override
     public List<Folder> getFolders() {
         return subFolders;
